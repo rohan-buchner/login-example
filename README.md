@@ -1,4 +1,4 @@
-# google-login
+# Google Login Page Clone
 
 A shot-for-shot remake of the Google Login Page, complete with animations.
 
