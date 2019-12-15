@@ -6,4 +6,5 @@ I designed this Google Login Page clone as a challenge to see how close I could 
 The **progress bar** can be found at [Material.io](https://material.io/components/progress-indicators/)
 
 **Preview**
+
 ![Google Login Preview](https://i.imgur.com/noS3bKa.png)
