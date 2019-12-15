@@ -1,5 +1,5 @@
 # Google Login Remake
-A **shot-for-shot remake** of the Google Login Page, complete with animations, **written using jQuery**.
+A **shot-for-shot remake** of the Google Login Page, complete with animations.
 
 I designed this Google Login Page clone as a challenge to see how close I could make it to the original. At some point I'll get round to animating the password section of the login page, but for now I'm pleased with the result.
 
