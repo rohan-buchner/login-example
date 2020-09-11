@@ -7,61 +7,95 @@
     }
 
 
-    function doEmailStep(){
 
-        /* check the validity of the email */
-        email_valid = validateEmail($('#email-input').val());
+    function Coogle(){
+        var coogle = this;
 
-        if(email_valid){
 
-            /* fade in the loading animations */
-            $( '.progress-bar' ).fadeIn('show');
-            $( '#login-form' ).fadeTo( "fast", 0.6 )
+        coogle.onReady = function(){
+            coogle.scrollTo(400, 0)
+        }
 
-            /* after we have a 'response' from the server */
-            setTimeout(function () {
+        coogle.doEmailStep = function(){
 
-                /* hide the progress bar */
-                $( '.progress-bar' ).css('display', 'none');
+            var emailValid = validateEmail($('#email-input').val());
+            
+            $('#cgle-progress-bar').fadeIn( 500 );//.css('display', 'block')
+            $('#login-form').css('opacity', 0.5)
 
-                /* if the user entered invalid entries before, hide the invalid classes */
-                $( '#email-input' ).removeClass('g-input-invalid');
-                $( '.invalid-email' ).css('display', 'none');
+            setTimeout(() => {
+                $('#cgle-progress-bar').fadeOut( 500 );//.css('display', 'none')
+                $('#login-form').css('opacity', 1.0)
+                if(emailValid){
+                    $('#email-input').removeClass('g-input-invalid')
+                    $('.invalid-email').css('display', 'none')
+                    $('#prev-email').text($('#email-input').val())
+                    coogle.toPasswordPage()
+                } else {
+                    $('#email-input').addClass('g-input-invalid')
+                    $('.invalid-email').css('display', 'block')
+                    coogle.toEmailPage()
+                }       
+            }, 400);
+        }
 
-                /* set the opacity to normal */
-                $( '#login-form' ).css('opacity', 1)
+        coogle.doPasswordStep = function(){
+            var username = $('#email-input').val()
+            var password = $('#password-input').val()
+            console.log(username, password)
+        }
 
-            }, 800);
+        coogle.toEmailPage = function(){
+            coogle.scrollTo(400)
+            $('#instruction-text').text('Sign in')
+            $('#instrution-text-desc').text('Continue to Gmail')
+            $('#email-input').focus()
+        }
 
-        } else {
+        coogle.toPasswordPage = function(){
+            coogle.scrollTo(0)
 
-            /* fade in the loading animations */
-            $( '.progress-bar' ).fadeIn('slow');
-            $( '#login-form' ).fadeTo( "fast", 0.6 )
+            $('#instruction-text').text('Welcome')
+            $('#instrution-text-desc').text(' ')
+            $('#password-input').focus()
+        }
 
-            /* after we have a 'response' from the server */
-            setTimeout(function () {
+        coogle.scrollTo = function(toPerc, duration = 500){
+            $('.slide-container-outer').animate({
+                scrollLeft: toPerc + '%'
+             }, duration);
+        }
 
-                /* show invalid classes as the email is not valid */
-                $( '#login-form' ).css('opacity', 1)
-                $( '.progress-bar' ).css('display', 'none');
-                $( '#email-input' ).addClass('g-input-invalid');
-                $( '.invalid-email' ).css('display', 'block');
+        coogle.attachEvents = function(){
+            $('#email-form-step').on('submit', function( e ){
+                coogle.doEmailStep()
+                e.preventDefault()
+            })
 
-            }, 500);
+
+            $('.btn-next-email').on('click', function(){
+                coogle.doEmailStep()
+            })
+
+            $('#password-form-step').on('submit', function( e ){
+                coogle.doPasswordStep()
+                e.preventDefault()
+            })
+
+            $('.btn-next-password').on('click', function(){
+                coogle.doPasswordStep()
+            })
+
 
         }
+
+        coogle.onReady()
+        coogle.attachEvents()
+
     }
 
-    /* seperate submit events as divs can't be used as submit buttons directly */
-
-    // if the next button is pressed
-    $( '#login-app' ).on('click', '.btn-next-email', function(event) {
-        doEmailStep()
-    });
-
-    // if the email form step is submitted
-    $( '#login-app' ).on('submit', '#email-form-step', function(event) {
-        event.preventDefault();
-        doEmailStep()
+    $( document ).ready(function() {
+        var myCoogle = new Coogle();
+        window.coogle = myCoogle;
+        //coogle.toPasswordPage()
     });

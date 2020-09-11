@@ -1,23 +1,16 @@
-
-/* desktop adjustments */
-@media only screen and (min-width: 768px) {
-    .login-container {
-        width: 436px !important;
-        margin: auto !important;
-        margin-top: 50px !important;
-		height: 500px !important;
-    }
-
-    .login-content {
-        padding-top: 30px !important;
-        padding-bottom: 40px !important;
-    }
+.login-container {
+    width: 436px !important;
+    margin: auto !important;
+    margin-top: 100px !important;
+    height: 500px !important;
 }
+
 
 html, body {
     width: 100%;
     height: 100%;
 }
+
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -28,7 +21,7 @@ html, body {
     border: 1px solid rgb(217, 220, 222);
     border-radius: 8px;
 	height: 80%;
-	position: relative;
+    position: relative;
 }
 
 .g-h1 {
@@ -46,11 +39,20 @@ html, body {
 
 .g-input {
     border-radius: 4px;
-    padding: 13px 15px;
     border: 1px solid rgb(218, 220, 222);
     width: 100%;
-    font-weight: 400;
+
     height: 52px !important;
+}
+
+.g-input input {
+    padding: 13px 15px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    border-radius: 4px;
 }
 
 .g-input:focus {
@@ -60,15 +62,11 @@ html, body {
 }
 
 .g-input-invalid {
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
 
 .g-input-invalid:focus {
     border: 2px solid red;
-}
-
-.login-content {
-    padding-top: 24px;
 }
 
 .g-legend {
@@ -76,7 +74,8 @@ html, body {
     font-size: 14px;
     color: #1a73e8;
     margin-top: 6px;
-	font-family: 'open-sans';
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
 }
 
 .p {
@@ -117,9 +116,8 @@ html, body {
 .gbtn-label {
     color: white;
     font-weight: 400;
-	font-family: 'open-sans';
+    font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	font-weight: bold;
 }
 
 #logo {
@@ -130,9 +128,9 @@ html, body {
     position: relative;
 }
 
+
 .login-content {
-    padding: 10px;
-	padding-top: 20px;
+    padding: 40px;
 	height: 100%;
 }
 
@@ -155,4 +153,16 @@ html, body {
 .invalid-email-text-span {
     font-size: 12px;
     color: red;
+}
+
+.g-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #80868a;
+}
+
+.btn-next-email {
+    cursor: pointer;
+}
+
+#email-form-step {
+    padding-top: 32px;
 }
