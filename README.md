@@ -1,8 +1,7 @@
 # Google Login Remake
 A **shot-for-shot remake** of the Google Login Page, complete with animations.
 
-Using this code for *phishing* or otherwise counts in most laws as a **felony**, please use the code responsibly.
-Thank you, Jake.
+Using this code for **phishing** or *"otherwise"* counts as a felony in nearly all countries, please use this code responsibly.
 
 The **progress bar** can be found at [Material.io](https://material.io/components/progress-indicators/)
 
