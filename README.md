@@ -1,9 +1,9 @@
 # Google Login Remake
 A **shot-for-shot remake** of the Google Login Page, complete with animations.
 
-I designed this Google Login Page clone as a challenge to see how close I could make it to the original. At some point I'll get round to animating the password section of the login page, but for now I'm pleased with the result.
+Using this code for phishing or otherwise counts in most laws as a felony, please use the code responsibly.
 
-** I've redacted the password section to prevent this project being used for phishing **
+Thank you, Jake.
 
 The **progress bar** can be found at [Material.io](https://material.io/components/progress-indicators/)
 
