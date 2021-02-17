@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8963480f-8e4e-41f4-a70e-6d6113b98d44" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613478124823</updated>
       <workItem from="1613478129102" duration="9609000" />
-      <workItem from="1613577573114" duration="2648000" />
+      <workItem from="1613577573114" duration="2876000" />
     </task>
     <task id="LOCAL-00001" summary="woohoo">
       <created>1613557030247</created>
@@ -90,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613585284636</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="rather use firestore instead">
+      <created>1613588540154</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613588540155</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +121,7 @@
     <MESSAGE value="updated working and title" />
     <MESSAGE value="updated ga event" />
     <MESSAGE value="added firebase analytics" />
-    <option name="LAST_COMMIT_MESSAGE" value="added firebase analytics" />
+    <MESSAGE value="rather use firestore instead" />
+    <option name="LAST_COMMIT_MESSAGE" value="rather use firestore instead" />
   </component>
 </project>
