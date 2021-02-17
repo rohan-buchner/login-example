@@ -5,6 +5,10 @@
     height: 500px !important;
 }
 
+.error {
+    border: solid 2px #FF0000;
+}
+
 
 html, body {
     width: 100%;

