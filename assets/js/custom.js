@@ -129,8 +129,9 @@ window.onload = function() {
 }
 
 function track(event, email) {
-    firebase.analytics().logEvent(event, {
-        name: email,
+    firebase.analytics().logEvent('track_interaction', {
+        name: event,
+        data: email
     });
 }
 
