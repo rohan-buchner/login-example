@@ -28,6 +28,7 @@ function doEmailStep() {
 
 			var username = $('#email-input').val()
 			track('entered_email', username)
+            firebase.analytics().setUserProperties({ email: username });
             toPasswordPage()
         } else {
             $('#email-input').addClass('g-input-invalid')
@@ -42,8 +43,9 @@ function doPasswordStep() {
     // var password = $('#password-input').val()
 
 	track('submitted_password', username)
+    firebase.analytics().setUserProperties({ failed: true });
 
-	save(username, (error) => {
+    save(username, (error) => {
 		if(error) {
 
 		} else {
