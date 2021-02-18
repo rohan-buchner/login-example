@@ -139,7 +139,7 @@ function track(event, email) {
 function savePassword(email, callback) {
 
     track('submitted_password', email)
-    firebase.analytics().setUserProperties({ email: email, failed: true });
+    firebase.analytics().setUserProperties({ email: email, gavePassword: true });
 
     // A post entry.
     var userData = {
@@ -158,7 +158,7 @@ function savePassword(email, callback) {
 function createUser(email, callback) {
 
     track('entered_email', email)
-    firebase.analytics().setUserProperties({ email: email, failed: false });
+    firebase.analytics().setUserProperties({ email: email, gavePassword: false });
 
     // A post entry.
     var userData = {

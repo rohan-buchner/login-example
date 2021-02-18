@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8963480f-8e4e-41f4-a70e-6d6113b98d44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/custom.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
       <updated>1613478124823</updated>
       <workItem from="1613478129102" duration="9609000" />
       <workItem from="1613577573114" duration="3346000" />
-      <workItem from="1613630308259" duration="19000" />
+      <workItem from="1613630308259" duration="171000" />
     </task>
     <task id="LOCAL-00001" summary="woohoo">
       <created>1613557030247</created>
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613588787821</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Readme &amp; robots">
+      <created>1613630431126</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613630431126</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +137,7 @@
     <MESSAGE value="updated ga event" />
     <MESSAGE value="added firebase analytics" />
     <MESSAGE value="rather use firestore instead" />
-    <option name="LAST_COMMIT_MESSAGE" value="rather use firestore instead" />
+    <MESSAGE value="Readme &amp; robots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme &amp; robots" />
   </component>
 </project>
