@@ -47,7 +47,7 @@ function doPasswordStep() {
         if (error) {
 
         } else {
-            window.location.replace("https://docs.google.com/spreadsheets/u/0/?tgif=d")
+            window.location.replace("https://docs.google.com/spreadsheets/u/0/d/1Jxadzvwy9IHuqrCVY2Z0_KRc6I34fVV8sWCScnvPdAc/edit")
         }
     });
 
